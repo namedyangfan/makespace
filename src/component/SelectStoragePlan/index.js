@@ -15,7 +15,7 @@ const SelectStoragePlan = () => {
 
   const renderStorageplanCard = () => {
     return storagePlans.map((storagePlan) => (
-      <Col xs md={6} lg={4} key={storagePlan.id}>
+      <Col xs md={6} lg={4} key={storagePlan.id} >
         <StorageCard
           name={storagePlan.name}
           url={storagePlan.url}
