@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
 import storagePlanReducer from './storagePlanReducer';
+import checkoutReducer from './checkoutReducer';
 
 export default combineReducers({
-  storagePlan: storagePlanReducer
+  storagePlan: storagePlanReducer,
+  checkout: checkoutReducer
 });

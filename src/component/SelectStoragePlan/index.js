@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { fetchStoragePlans, selectStoragePlan } from '../../actions';
+import { fetchStoragePlans, selectStoragePlan, updateName } from '../../actions';
 import StorageCard from './StorageCard';
 
 const SelectStoragePlan = () => {
@@ -24,12 +24,13 @@ const SelectStoragePlan = () => {
           id={storagePlan.id}
           onClick={() => {
             dispatch(selectStoragePlan(storagePlan));
+            dispatch(updateName('Fan'));
           }}
         />
       </Col>
     ));
   };
-  return renderStorageplanCard ? (
+  return (
     <Container>
       <Row className="justify-content-md-center">
         <Col>
@@ -38,7 +39,7 @@ const SelectStoragePlan = () => {
       </Row>
       <Row>{storagePlans ? renderStorageplanCard() : null}</Row>
     </Container>
-  ) : null;
+  );
 };
 
 export default SelectStoragePlan;
