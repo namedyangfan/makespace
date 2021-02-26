@@ -2,19 +2,18 @@ import {
   FETCH_CITIES,
   UPDATE_NAME,
   UPDATE_STREET,
-  UPDATE_CITY,
-  UPDATE_ZIP,
+  UPDATE_SELECT_CITY_VALUE,
+  UPDATE_ZIP
 } from '../actions/types';
 
 const initialState = {
-  cities: [],
+  cities  : [],
   userInfo: {
-    name: null,
-    street: null,
-    city: null,
-    zip: null,
+    name  : '',
+    street: '',
+    city  : '',
+    zip   : ''
   },
-  test: ''
 };
 
 const checkoutReducer = function (state = initialState, action) {
@@ -26,27 +25,29 @@ const checkoutReducer = function (state = initialState, action) {
         cities: action.cities,
       };
 
-    // case UPDATE_NAME:
-    //   return {
-    //     ...state,
-    //     test: 'Fan',
-    //   };
+    case UPDATE_NAME:
+      return {
+        ...state,
+        userInfo: { ...state.userInfo, name: action.name },
+      };
 
     case UPDATE_STREET:
       return {
         ...state,
         userInfo: { ...state.userInfo, street: action.street },
       };
-    // case UPDATE_CITY:
-    //   return {
-    //     ...state,
-    //     userInfo: { ...state.userInfo, city: action.city },
-    //   };
-    // case UPDATE_ZIP:
-    //   return {
-    //     ...state,
-    //     userInfo: { ...state.userInfo, zip: action.zip },
-    //   };
+
+    case UPDATE_SELECT_CITY_VALUE:
+      return {
+        ...state,
+        userInfo: { ...state.userInfo, city: action.city },
+      };
+
+    case UPDATE_ZIP:
+      return {
+        ...state,
+        userInfo: { ...state.userInfo, zip: action.zip },
+      };
 
     default:
       return state;

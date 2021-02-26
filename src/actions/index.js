@@ -4,7 +4,7 @@ import {
   FETCH_CITIES,
   UPDATE_NAME,
   UPDATE_STREET,
-  UPDATE_CITY,
+  UPDATE_SELECT_CITY_VALUE,
   UPDATE_ZIP,
 } from './types';
 import api from '../api';
@@ -32,22 +32,22 @@ export const fetchCities = () => (dispatch) => {
   });
 };
 
-export const updateName = () => (name) => ({
+export const updateName = (name) => ({
   type: UPDATE_NAME,
-  name: 'Fan',
+  name,
 });
 
-// export const updateStreet = () => (street) => ({
-//   type: UPDATE_STREET,
-//   street,
-// });
+export const updateStreet = (street) => ({
+  type: UPDATE_STREET,
+  street,
+});
 
-// export const updateCity = () => (city) => ({
-//   type: UPDATE_CITY,
-//   city,
-// });
+export const updateSelectCity = (city) => ({
+  type: UPDATE_SELECT_CITY_VALUE,
+  city,
+});
 
-// export const updateZip = () => (zip) => ({
-//   type: UPDATE_ZIP,
-//   zip,
-// });
+export const updateZip = (zip) => ({
+  type: UPDATE_ZIP,
+  zip,
+});
