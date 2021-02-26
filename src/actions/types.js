@@ -6,3 +6,4 @@ export const UPDATE_NAME              = 'UPDATE_NAME';
 export const UPDATE_STREET            = 'UPDATE_STREET';
 export const UPDATE_SELECT_CITY_VALUE = 'UPDATE_SELECT_CITY_VALUE';
 export const UPDATE_ZIP               = 'UPDATE_ZIP';
+export const UPDATE_STATE             = 'UPDATE_STATE';

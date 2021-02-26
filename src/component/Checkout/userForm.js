@@ -6,12 +6,13 @@ import {
   updateStreet,
   updateSelectCity,
   updateZip,
+  updateState,
 } from '../../actions';
 
 const UserForm = ({ cities }) => {
   const dispatch = useDispatch();
 
-  const { name, street, city, zip } = useSelector(
+  const { name, street, city, zip, state:province } = useSelector(
     (state) => state.checkout.userInfo
   );
 
@@ -24,10 +25,13 @@ const UserForm = ({ cities }) => {
   };
 
   const handleCityChange = (e) => {
-    const index = e.target.value;
-    if (cities[index]) {
-      dispatch(updateSelectCity(index));
-      dispatch(updateZip(cities[index].zipCode));
+    const cityId = parseInt(e.target.value);
+    const selectedCity = cities.find(cityItem => cityItem.id === parseInt(cityId))
+
+    if (selectedCity) {
+      dispatch(updateSelectCity(cityId));
+      dispatch(updateZip(selectedCity.zipCode));
+      dispatch(updateState(selectedCity.state));
     }
   };
 
@@ -43,7 +47,7 @@ const UserForm = ({ cities }) => {
             <option value={null}>City</option>
             {cities
               ? cities.map((city, index) => (
-                  <option value={index} key={index}>
+                  <option value={city.id} key={index}>
                     {city.cityName}
                   </option>
                 ))
@@ -51,7 +55,7 @@ const UserForm = ({ cities }) => {
           </Form.Control>
         </Col>
         <Col lg={4} xs={2}>
-          <Form.Control placeholder='State' disabled />
+          <Form.Control placeholder='State' value ={province} disabled />
         </Col>
       </Form.Row>
     );

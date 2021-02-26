@@ -3,7 +3,8 @@ import {
   UPDATE_NAME,
   UPDATE_STREET,
   UPDATE_SELECT_CITY_VALUE,
-  UPDATE_ZIP
+  UPDATE_ZIP,
+  UPDATE_STATE
 } from '../actions/types';
 
 const initialState = {
@@ -12,12 +13,12 @@ const initialState = {
     name  : '',
     street: '',
     city  : '',
-    zip   : ''
+    zip   : '',
+    state : ''
   },
 };
 
 const checkoutReducer = function (state = initialState, action) {
-  console.log('action: ', action);
   switch (action.type) {
     case FETCH_CITIES:
       return {
@@ -47,6 +48,11 @@ const checkoutReducer = function (state = initialState, action) {
       return {
         ...state,
         userInfo: { ...state.userInfo, zip: action.zip },
+      };
+    case UPDATE_STATE:
+      return {
+        ...state,
+        userInfo: { ...state.userInfo, state: action.state },
       };
 
     default:

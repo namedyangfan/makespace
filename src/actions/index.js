@@ -6,6 +6,7 @@ import {
   UPDATE_STREET,
   UPDATE_SELECT_CITY_VALUE,
   UPDATE_ZIP,
+  UPDATE_STATE
 } from './types';
 import api from '../api';
 
@@ -50,4 +51,9 @@ export const updateSelectCity = (city) => ({
 export const updateZip = (zip) => ({
   type: UPDATE_ZIP,
   zip,
+});
+
+export const updateState = (state) => ({
+  type: UPDATE_STATE,
+  state,
 });
