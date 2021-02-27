@@ -14,7 +14,7 @@ const Summary = ({
   const total = basePrice + adjustPrice;
 
   const renderSubmitButton = () => {
-    if (cityName) {
+    if (cityName && name && street) {
       return <Button variant='primary'>Submit</Button>;
     }
     return (
