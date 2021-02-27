@@ -1,5 +1,5 @@
 # Live Demo
-checkout the deployed frontend app: [Makespace Frontend](makespace.canadacentral.azurecontainer.io)
+checkout the deployed frontend app: [Makespace Frontend](http://makespace.canadacentral.azurecontainer.io)
 
 
 checkout the deployed api swagger: [Makespace Api](http://20.151.29.24:8080/api-docs/)
