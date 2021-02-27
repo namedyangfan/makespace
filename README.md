@@ -25,6 +25,12 @@ npm start
 ```
 Open [http://localhost:3000](http://localhost:3000) to view the app.
 
+## Key Packages
+ - Redux: state management
+ - Reacter Router: switch between different pages
+ - React Bootstrap
+ - Axios: api request 
+
 ## Future Implementation
   - User authentication
   - Error handling and loading page
