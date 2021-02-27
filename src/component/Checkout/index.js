@@ -24,7 +24,13 @@ const Checkout = () => {
   }, [dispatch, history]);
 
   const { cities, userInfo } = useSelector((state) => state.checkout);
-  const { id: cityId, cityName, zipCode, state: province, priceFactor } = userInfo.selectedCity;
+  const {
+    id: cityId,
+    cityName,
+    zipCode,
+    state: province,
+    priceFactor,
+  } = userInfo.selectedCity;
   const { selectedStoragePlan } = useSelector((state) => state.storagePlan);
 
   const handleNameChange = (e) => {
@@ -34,6 +40,20 @@ const Checkout = () => {
   const handleStreetChange = (e) => {
     dispatch(updateStreet(e.target.value));
   };
+
+  const handlePayNow = (payment) => {
+    const payload = {
+      cityId,
+      cityName,
+      zipCode,
+      state: province,
+      payment,
+      name: userInfo.name,
+      street: userInfo.street
+    }
+    console.log('payload: ', payload);
+    // TODO: implement action for submit payment
+  }
 
   const handleCityChange = (e) => {
     const changedCityId = parseInt(e.target.value);
@@ -76,6 +96,7 @@ const Checkout = () => {
             zipCode={zipCode}
             state={province}
             priceFactor={priceFactor}
+            handlePayNow={handlePayNow}
           />
         </Col>
       </Row>

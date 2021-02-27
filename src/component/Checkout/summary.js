@@ -8,6 +8,7 @@ const Summary = ({
   zipCode,
   state,
   priceFactor,
+  handlePayNow
 }) => {
   const basePrice = parseFloat(selectedStoragePlan.basePrice);
   const adjustPrice = basePrice * (parseFloat(priceFactor) - 1);
@@ -15,11 +16,11 @@ const Summary = ({
 
   const renderSubmitButton = () => {
     if (cityName && name && street) {
-      return <Button variant='primary'>Submit</Button>;
+      return <Button variant='primary' onClick={()=>handlePayNow(total)}>Pay Now</Button>;
     }
     return (
       <Button variant='primary' disabled>
-        Submit
+        Pay Now
       </Button>
     );
   };
