@@ -1,5 +1,5 @@
 # Live Demo
-checkout the deployed frontend app: [Makespace Frontend](http://20.151.29.24:8080/api-docs/)
+checkout the deployed frontend app: [Makespace Frontend](http://20.48.133.244/)
 
 
 checkout the deployed api swagger: [Makespace Api](http://20.151.29.24:8080/api-docs/)
