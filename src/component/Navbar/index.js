@@ -3,7 +3,7 @@ import { Navbar } from 'react-bootstrap';
 const Navigation = () => {
   return (
     <Navbar bg='primary'>
-      <Navbar.Brand >
+      <Navbar.Brand href="/">
       <img
         src="https://cdn.makespace.com/s/img/ws/logo-white.svg"
         className="d-inline-block align-top"

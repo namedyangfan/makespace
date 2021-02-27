@@ -2,9 +2,7 @@ import {
   FETCH_CITIES,
   UPDATE_NAME,
   UPDATE_STREET,
-  UPDATE_SELECT_CITY_VALUE,
-  UPDATE_ZIP,
-  UPDATE_STATE
+  UPDATE_SELECTED_CITY,
 } from '../actions/types';
 
 const initialState = {
@@ -12,9 +10,13 @@ const initialState = {
   userInfo: {
     name  : '',
     street: '',
-    city  : '',
-    zip   : '',
-    state : ''
+    selectedCity: {
+      city       : '',
+      zipCode    : '',
+      state      : '',
+      priceFactor: 1,
+      cityName   : ''
+    }
   },
 };
 
@@ -38,21 +40,10 @@ const checkoutReducer = function (state = initialState, action) {
         userInfo: { ...state.userInfo, street: action.street },
       };
 
-    case UPDATE_SELECT_CITY_VALUE:
+    case UPDATE_SELECTED_CITY:
       return {
         ...state,
-        userInfo: { ...state.userInfo, city: action.city },
-      };
-
-    case UPDATE_ZIP:
-      return {
-        ...state,
-        userInfo: { ...state.userInfo, zip: action.zip },
-      };
-    case UPDATE_STATE:
-      return {
-        ...state,
-        userInfo: { ...state.userInfo, state: action.state },
+        userInfo: { ...state.userInfo, selectedCity: action.city },
       };
 
     default:

@@ -1,40 +1,16 @@
 import { Col, Form } from 'react-bootstrap';
-import { useDispatch, useSelector } from 'react-redux';
 
-import {
-  updateName,
-  updateStreet,
-  updateSelectCity,
-  updateZip,
-  updateState,
-} from '../../actions';
-
-const UserForm = ({ cities }) => {
-  const dispatch = useDispatch();
-
-  const { name, street, city, zip, state:province } = useSelector(
-    (state) => state.checkout.userInfo
-  );
-
-  const handleNameChange = (e) => {
-    dispatch(updateName(e.target.value));
-  };
-
-  const handleStreetChange = (e) => {
-    dispatch(updateStreet(e.target.value));
-  };
-
-  const handleCityChange = (e) => {
-    const cityId = parseInt(e.target.value);
-    const selectedCity = cities.find(cityItem => cityItem.id === parseInt(cityId))
-
-    if (selectedCity) {
-      dispatch(updateSelectCity(cityId));
-      dispatch(updateZip(selectedCity.zipCode));
-      dispatch(updateState(selectedCity.state));
-    }
-  };
-
+const UserForm = ({
+  cities,
+  name,
+  street,
+  cityId,
+  zipCode,
+  province,
+  handleNameChange,
+  handleStreetChange,
+  handleCityChange,
+}) => {
   const renderCityDropDown = () => {
     return (
       <Form.Row>
@@ -42,20 +18,20 @@ const UserForm = ({ cities }) => {
           <Form.Control
             as='select'
             onChange={(e) => handleCityChange(e)}
-            value={city}
+            value={cityId}
           >
             <option value={null}>City</option>
             {cities
-              ? cities.map((city, index) => (
-                  <option value={city.id} key={index}>
-                    {city.cityName}
+              ? cities.map((cityItem, index) => (
+                  <option value={cityItem.id} key={index}>
+                    {cityItem.cityName}
                   </option>
                 ))
               : null}
           </Form.Control>
         </Col>
-        <Col lg={4} xs={2}>
-          <Form.Control placeholder='State' value ={province} disabled />
+        <Col lg={4} xs={4}>
+          <Form.Control placeholder='State' value={province} disabled />
         </Col>
       </Form.Row>
     );
@@ -83,7 +59,12 @@ const UserForm = ({ cities }) => {
       {renderCityDropDown()}
       <Form.Group controlId='exampleForm.ControlInput1'>
         <Form.Label></Form.Label>
-        <Form.Control type='text' placeholder='Zip' value={zip} disabled />
+        <Form.Control
+          type='text'
+          placeholder='Zip'
+          value={zipCode}
+          disabled
+        />
       </Form.Group>
     </Form>
   );
