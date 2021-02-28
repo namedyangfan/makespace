@@ -4,6 +4,13 @@ checkout the deployed frontend app: [Makespace Frontend](http://makespace.canada
 
 checkout the deployed api swagger: [Makespace Api](http://20.151.29.24:8080/api-docs/)
 
+# Design
+## Overall architecture
+<iframe style="border:none" width="800" height="450" src="https://whimsical.com/embed/27K1domKbkeyXC9W85BgGm@LUSUr8hW5n5fziD5v7"></iframe>
+
+## Frontend architecture
+<iframe style="border:none" width="800" height="450" src="https://whimsical.com/embed/56jyeze3FAwH42GufCJm1M@2Ux7TurymN6B6HaNkTLB"></iframe>
+
 ## Run app locally
 
 ### First: start the backend server
